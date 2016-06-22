@@ -13,16 +13,15 @@
 <body>
 <div class="container-fluid" align="center">
     <h1>Roman Calculator</h1>
-    <div class="col-md-8 col-lg-offset-2">
-        <div class="col-sm-8 col-lg-offset-2">
-            <input type="text" class="form-control" placeholder="Введите римскую цифру: " id="writeTextAtInputOne">
-            <button type="button" class="btn btn-danger" id="multiplication">X</button>
-            <button type="button" class="btn btn-danger" id="division">`/,</button>
-            <button type="button" class="btn btn-danger" id="subtraction">-</button>
-            <button type="button" class="btn btn-danger" id="added">+</button>
-            <input type="text" class="form-control" placeholder="Введите римскую цифру: " id="writeTextAtInputToo">
-            <input type="text" class="form-control" placeholder="~-Ответ-~" id="answer">
-            <button type="button" class="btn btn-default" id="pressButton">Вычислить</button>
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-8 col-xs-offset-2">
+            <input type="text" class="form-control writeTextAtInputOne" placeholder="Введите римскую цифру:">
+            <button type="button" class="btn btn-primary multiplication" onclick="logicalExpressionRendering('X')">X</button>
+            <button type="button" class="btn btn-primary division" onclick="logicalExpressionRendering('/')">/</button>
+            <button type="button" class="btn btn-primary subtraction" onclick="logicalExpressionRendering('-')">-</button>
+            <button type="button" class="btn btn-primary added" onclick="logicalExpressionRendering('+')">+</button>
+            <input type="text" class="form-control writeTextAtInputTwo" placeholder="Введите римскую цифру:">
+            <input type="text" class="form-control answer" disabled placeholder="~-Ответ-~">
         </div>
     </div>
 </div>

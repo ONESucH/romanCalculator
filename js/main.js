@@ -1,39 +1,33 @@
-var allTask = {
-    writeTextAtInputOne: $('#writeTextAtInputOne'),
-    multiplication: $('#multiplication'),
-    division: $('#division'),
-    subtraction: $('#subtraction'),
-    added: $('#added'),
-    writeTextAtInputToo: $('#writeTextAtInputToo'),
-    answer: $('#answer'),
-    pressButton: $('#pressButton')
+var reg = /[A-Z]/gi;
+var allElements = {
+    writeTextAtInputOne : $('.writeTextAtInputOne'),
+    multiplication : $('.multiplication'),
+    division : $('.division'),
+    subtraction : $('.subtraction'),
+    added : $('.added'),
+    writeTextAtInputTwo : $('.writeTextAtInputTwo'),
+    answer : $('.answer')
 };
 
-allTask.pressButton.on('click', function () {
-    var writeTextAtInputOne = allTask.writeTextAtInputOne.val().length;
-    var writeTextAtInputToo = allTask.writeTextAtInputToo.val().length;
-    var regularExpression = /[IVXLCDMivxlcdm]/g;                        //Регулярное выражение
+function logicalExpressionRendering(expressionRendering) {
+    var result;
+    if (expressionRendering === 'X') {
+        result = allElements.writeTextAtInputOne * allElements.writeTextAtInputTwo;
+    }
+    if (expressionRendering === '/') {
+        result = allElements.writeTextAtInputOne / allElements.writeTextAtInputTwo;
+    }
+    if (expressionRendering === '-') {
+        result = allElements.writeTextAtInputOne - allElements.writeTextAtInputTwo;
+    }
+    if (expressionRendering === '+') {
+        result = allElements.writeTextAtInputOne + allElements.writeTextAtInputTwo;
+    }
+    textInputValidation(result);
+}
 
-    if (!writeTextAtInputOne || !writeTextAtInputToo) {
-        alert('Вы не ввели в обе формы ЛАТИНСКИЕ ЦИФРЫ');
-        return false;
-    }
-    if (!regularExpression) {
-        alert('Таких ЛАТИНСКИХ ЦИФР не существует.\n Пример:  I V X L C D M  или  i v x l c d m');
-        return false;
-    }
-    if (writeTextAtInputOne >= 16 || writeTextAtInputOne >= 16) {
-        alert('Нельзя использовать В ОДНОЙ ФОРМЕ больше 15 символов, у Вас их - ' + writeTextAtInputOne);
-        return false;
-    }
-    if (allTask.multiplication === false && allTask.division === false && allTask.subtraction === false && allTask.added === false) {
-        alert('Вы не выбрали операцию над объектом');
-        return false;
-    }
-    allTask.writeTextAtInputOne.val('');
-    allTask.writeTextAtInputToo.val('');
-});
+function textInputValidation(result) {
+    var writeTextForInputOne = allElements.writeTextAtInputOne.val();
+    var writeTextForInputTwo = allElements.writeTextAtInputTwo.val();
+};
 
-allTask.multiplication.on('click', function () {
-   allTask.writeTextAtInputOne * allTask.writeTextAtInputToo;
-});
